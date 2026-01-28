@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
+from psutil import Process, virtual_memory
 
 
 app = FastAPI()
@@ -15,7 +16,7 @@ async def memory_leak():
     mem_leak_list = []
     while True:
         mem_leak_list.append(' ' * 10**7)  # Append 1MB of spaces repeatedly
-        
+
         
     
     
