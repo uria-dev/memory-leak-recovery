@@ -119,11 +119,11 @@ httpRoute:
 resources: {
   limits: {
         cpu: "500m",
-    memory: "256Mi",
+    memory: "1024Mi",
   },
   requests: {
         cpu: "100m",
-    memory: "128Mi"
+    memory: "512Mi",
   }
 
 }
@@ -145,11 +145,11 @@ readinessProbe:
 
 # This section is for setting up autoscaling more information can be found here: https://kubernetes.io/docs/concepts/workloads/autoscaling/
 autoscaling:
-  enabled: false
+  enabled: true
   minReplicas: 1
-  maxReplicas: 100
-  targetCPUUtilizationPercentage: 80
-  # targetMemoryUtilizationPercentage: 80
+  maxReplicas: 10
+  # targetCPUUtilizationPercentage: 80
+  targetMemoryUtilizationPercentage: 40
 
 # Additional volumes on the output Deployment definition.
 volumes: []
