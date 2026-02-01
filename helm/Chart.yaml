@@ -1,6 +1,6 @@
 apiVersion: v2
 name: memory-leak-recovery
-description: A Helm chart for Kubernetes
+description: An app that demonstrates recovery from memory leaks in Kubernetes pods.
 
 # A chart can be either an 'application' or a 'library' chart.
 #
