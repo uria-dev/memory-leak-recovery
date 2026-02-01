@@ -16,7 +16,7 @@ async def read_root():
 @app.get("/leak")
 async def memory_leak():
     mem_leak_list = []
-    interval = 0.1
+    interval = 1.0
     memcollector = MemoryCollector()
     while True:
         memcollector.collect_memory_metric()
