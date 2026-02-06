@@ -3,11 +3,11 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 from psutil import Process, virtual_memory
 from .collectors import MemoryCollector
+from prometheus_client import make_asgi_app
 
 
 app = FastAPI()
-
-
+metrics_app = make_asgi_app()
 
 @app.get("/")
 async def read_root():
@@ -23,6 +23,4 @@ async def memory_leak():
         mem_leak_list.append(' ' * 10**7)  # Append 1MB of spaces repeatedly
         await sleep(interval)
 
-        
-    
-    
+app.mount("/metrics", metrics_app)
